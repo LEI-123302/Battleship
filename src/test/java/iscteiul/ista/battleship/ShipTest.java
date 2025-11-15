@@ -187,6 +187,7 @@ class ShipTest {
                 "Assert 'pos != null' do construtor deve falhar");
 
         // Testar occupies
+
         assertThrows(AssertionError.class, () ->
                         ship.occupies(null),
                 "Assert 'pos != null' de occupies deve falhar");
