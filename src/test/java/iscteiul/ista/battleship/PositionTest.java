@@ -19,6 +19,7 @@ class PositionTest {
 
     @BeforeEach
     void setup() {
+        // Posição base para todos os testes que necessitem de uma
         p = new Position(2, 3);
     }
 
@@ -102,14 +103,14 @@ class PositionTest {
         @ParameterizedTest
         @DisplayName("Posições adjacentes retornam true")
         @CsvSource({
-                "1,2",
-                "2,2",
-                "3,2",
-                "1,3",
-                "3,3",
-                "1,4",
-                "2,4",
-                "3,4"
+                "1,2", // Diagonal superior esquerda
+                "2,2", // Esquerda
+                "3,2", // Diagonal inferior esquerda
+                "1,3", // Cima
+                "3,3", // Baixo (ESTE ERA O QUE FALHAVA no outro teste)
+                "1,4", // Diagonal superior direita
+                "2,4", // Direita
+                "3,4"  // Diagonal inferior direita
         })
         void testIsAdjacentTrue(int r, int c) {
             Position adj = new Position(r, c);
@@ -119,17 +120,17 @@ class PositionTest {
         @ParameterizedTest
         @DisplayName("Posições NÃO adjacentes retornam false")
         @CsvSource({
-                "0,0",
-                "5,5",
-                "10,10",
-                "2,6",
-                "0,0,0,1",
-                "3,3,4,5",
-                "0,0,3,0"
+                "0,0",   // Distante
+                "5,5",   // Distante
+                "10,10", // Distante
+                "2,6",   // Distante na mesma linha
+                "0,1",   // Distante
+                "4,5",   // Distante
+                "3,0"    // Distante
         })
         void testIsAdjacentFalse(int r, int c) {
             Position far = new Position(r, c);
-            assertFalse(p.isAdjacentTo(far));
+            assertFalse(p.isAdjacentTo(far)); // Linha 132
         }
     }
 
