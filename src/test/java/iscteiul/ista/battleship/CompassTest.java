@@ -38,6 +38,6 @@ class CompassTest {
         // caracteres desconhecidos retornam UNKNOWN
         assertEquals(Compass.UNKNOWN, Compass.charToCompass('x'));
         assertEquals(Compass.UNKNOWN, Compass.charToCompass(' '));
-        assertEquals(Compass.UNKNOWN, Compass.charToCompass('N')); // maiúscula não mapeada
+        assertEquals(Compass.UNKNOWN, Compass.charToCompass('N')); // maiúscula não mapeadaa
     }
 }
