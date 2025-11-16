@@ -79,4 +79,7 @@ public class Galleon extends Ship {
         getPositions().add(new Position(pos.getRow() + 2, pos.getColumn()));
     }
 
+    public String getName() {
+        return  NAME;
+    }
 }
