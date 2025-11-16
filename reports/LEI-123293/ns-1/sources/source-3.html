@@ -45,26 +45,26 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">Carrack</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    66,7%
   </span>
   <span class="absValue">
-    (0/3)
+    (2/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    37,5%
   </span>
   <span class="absValue">
-    (0/8)
+    (3/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    55,6%
   </span>
   <span class="absValue">
-    (0/9)
+    (5/9)
   </span>
 </td>
 </tr>
@@ -72,18 +72,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">Carrack$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -91,26 +91,26 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    75%
   </span>
   <span class="absValue">
-    (0/4)
+    (3/4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    37,5%
   </span>
   <span class="absValue">
-    (0/8)
+    (3/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    60%
   </span>
   <span class="absValue">
-    (0/10)
+    (6/10)
   </span>
 </td>
 </tr>
@@ -127,7 +127,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;package iscteiul.ista.battleship;
 &nbsp;
 &nbsp;public class Carrack extends Ship {
-<b class="nc">&nbsp;    private static final Integer SIZE = 3;</b>
+<b class="fc">&nbsp;    private static final Integer SIZE = 3;</b>
 &nbsp;    private static final String NAME = &quot;Nau&quot;;
 &nbsp;
 &nbsp;    /**
@@ -135,12 +135,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;     * @param pos
 &nbsp;     */
 &nbsp;    public Carrack(Compass bearing, IPosition pos) throws IllegalArgumentException {
-<b class="nc">&nbsp;        super(Carrack.NAME, bearing, pos);</b>
-<b class="nc">&nbsp;        switch (bearing) {</b>
+<b class="fc">&nbsp;        super(Carrack.NAME, bearing, pos);</b>
+<b class="pc">&nbsp;        switch (bearing) {</b>
 &nbsp;            case NORTH:
 &nbsp;            case SOUTH:
-<b class="nc">&nbsp;                for (int r = 0; r &lt; SIZE; r++)</b>
-<b class="nc">&nbsp;                    getPositions().add(new Position(pos.getRow() + r, pos.getColumn()));</b>
+<b class="fc">&nbsp;                for (int r = 0; r &lt; SIZE; r++)</b>
+<b class="fc">&nbsp;                    getPositions().add(new Position(pos.getRow() + r, pos.getColumn()));</b>
 &nbsp;                break;
 &nbsp;            case EAST:
 &nbsp;            case WEST:
@@ -186,7 +186,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-11-16 22:55</div>
+    <div style="float:right;">generated on 2025-11-16 23:06</div>
 </div>
 </body>
 </html>
