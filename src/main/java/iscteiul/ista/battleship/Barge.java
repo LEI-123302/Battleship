@@ -21,4 +21,9 @@ public class Barge extends Ship {
         return SIZE;
     }
 
+    public String getName() {
+        return NAME;
+    }
+
 }
+
