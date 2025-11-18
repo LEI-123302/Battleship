@@ -277,4 +277,23 @@ class FleetTest {
         IShip result = emptyFleet.shipAt(new Position(1, 1));
         assertNull(result);
     }
+    @Test
+    @DisplayName("Cobertura de Ramo: Forçar 'ships.size > FLEET_SIZE' (Injeção direta)")
+    void testAddShip_BranchCoverage_ForceOverflow() {
+        int limit = IFleet.FLEET_SIZE;
+        for (int i = 0; i < limit + 5; i++) {
+            // Adicionamos barcos "falsos" diretamente à lista
+            TestShip dummy = new TestShip("Dummy", Compass.NORTH, new Position(i, 0));
+            fleet.getShips().add(dummy);
+        }
+
+        // Tentar adicionar um barco normal via addShip
+        TestShip normalShip = new TestShip("Normal", Compass.NORTH, new Position(0, 0));
+        normalShip.addTestPosition(new Position(0, 0));
+
+        // O método deve retornar false IMEDIATAMENTE na primeira condição do IF
+        boolean result = fleet.addShip(normalShip);
+
+        assertFalse(result, "Deve falhar porque a frota está superlotada");
+    }
 }
