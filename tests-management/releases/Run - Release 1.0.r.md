@@ -1,14 +1,17 @@
 # Run - Release 1.0
 
 ## Release Checklist
-* [unknown] C1 Generate Reports
+* [passed] C1 Generate Reports
+  executed_by: @LEI-123283
 
-* [unknown] C2 Run Automated Unit Tests
+* [passed] C2 Run Automated Unit Tests
+  executed_by: @LEI-123283
 
 
 ## Unit Tests
-* [unknown] C3 Ships and Game test case
-    tags: #unit-tests, #test-cases
+* [passed] C3 Ships and Game test case
+  executed_by: @LEI-123283
+  tags: #unit-tests, #test-cases
     * BargeTest
     * CaravelTest
     * CarrackTest
@@ -20,8 +23,7 @@
     * CompassTest
     * AppTest
 
-* [unknown] C4 Tasks test case
-    tags: #unit-tests, #test-cases
+* [passed] C4 Tasks test case
+  executed_by: @LEI-123283
+  tags: #unit-tests, #test-cases
     * TasksTest
-
-
