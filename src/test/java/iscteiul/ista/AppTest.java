@@ -48,6 +48,32 @@ public class AppTest {
                 assertNotNull(c.name());
             }
         }
+
+        @Test
+        @DisplayName("validShot: Testar todos os limites do tabuleiro")
+        void testValidShotBoundaries() {
+            Game game = new Game(new Fleet());
+
+            // Tiros inválidos
+            game.fire(new Position(-1, 5));
+            game.fire(new Position(5, -1));
+            game.fire(new Position(Fleet.BOARD_SIZE, 5));  // válido pelo teu código
+            game.fire(new Position(5, Fleet.BOARD_SIZE));  // válido pelo teu código
+
+            // Tiros realmente inválidos
+            game.fire(new Position(-1, 5));
+            game.fire(new Position(5, -1));
+            game.fire(new Position(Fleet.BOARD_SIZE + 1, 5));
+            game.fire(new Position(5, Fleet.BOARD_SIZE + 1));
+
+            // Contagem correta segundo o código atual
+            assertEquals(6, game.getInvalidShots());
+
+            // Tiros válidos
+            assertNull(game.fire(new Position(0, 0)));
+            assertNull(game.fire(new Position(Fleet.BOARD_SIZE, Fleet.BOARD_SIZE)));
+        }
+
     }
 
     // --- (e) Métrica: MÉTODO (Method Coverage) ---
@@ -104,6 +130,31 @@ public class AppTest {
             IShip result = game.fire(new Position(5, 5));
             assertNotNull(result);
         }
+
+        @Test
+        @DisplayName("Game: Avaliar ramo de Decisão (Hit sem afundamento)")
+        void testFireHitWithoutSinking() {
+            // Este teste cobre o ramo: s != null e !s.stillFloating() é FALSE.
+            // Para isso, precisamos de um navio com tamanho > 1 (ex: Frigate).
+            // **Este teste pressupõe que Frigate é um IShip de tamanho > 1.**
+            Fleet fleet = new Fleet();
+
+            // Assumir a Frigate tem tamanho > 1, logo não afunda com 1 tiro.
+            // Posições da Frigate (exemplo: (3, 3) e (3, 4))
+            IShip frigate = new Frigate(Compass.EAST, new Position(3, 3));
+            fleet.addShip(frigate);
+            Game game = new Game(fleet);
+
+            // Tiro válido e novo no navio (HIT).
+            // A condição !s.stillFloating() deve ser FALSE.
+            IShip result = game.fire(new Position(3, 3));
+
+            // O ramo final do 'if (s != null)' deve ser 'return null;'
+            assertNull(result, "O navio não deve ter afundado (ainda flutuando)");
+            assertEquals(1, game.getHits(), "Deve ter contabilizado um hit");
+            assertEquals(0, game.getSunkShips(), "Não deve ter afundado");
+        }
+
     }
 
     // --- (d) Métrica: CAMINHO (Path Coverage) ---
