@@ -27,6 +27,10 @@ public class Game implements IGame {
         shots = new ArrayList<>();
         countInvalidShots = 0;
         countRepeatedShots = 0;
+
+        countHits = 0; //contadores que faltavam
+        countSinks = 0;
+
         this.fleet = fleet;
     }
 
